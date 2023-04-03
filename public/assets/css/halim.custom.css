@@ -1,0 +1,142 @@
+.img-responsive {
+  width: 65%;
+  margin: auto;
+  height: auto;
+}
+#overlay-ad .image {
+  position: relative;
+}
+#overlay-ad {
+  position: fixed;
+  text-align: center;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
+  min-height: 500px;
+}
+#overlay-ad .wrap {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: 100vh;
+}
+#overlay-ad:before {
+  content: '';
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+#overlay-ad .icon-close {
+  color: #fff;
+  cursor: pointer;
+  float: right;
+  height: 28px;
+  width: 28px;
+  border: 1px solid #fff;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  border-radius: 50%;
+  line-height: 1.8;
+  background: #ff0000;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+.icon-close span {
+  position: absolute;
+  font-size: 0.8em;
+  left: 6px;
+}
+
+.lightbox-player {
+  position: fixed;
+  width: auto;
+  height: 400px;
+  top: 50%;
+  bottom: 50%;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  margin: auto;
+  text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+  .lightbox-player {
+    position: fixed;
+    width: auto;
+    height: 400px;
+    top: 72%;
+    bottom: 28%;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    margin: auto;
+    text-align: center;
+  }
+}
+.preload-button {
+  position: absolute;
+  top: -15px;
+  right: 644px;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  font-size: 24px;
+  background: #d42b2b;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 38px;
+  cursor: pointer;
+  z-index: 9999;
+}
+@media screen and (max-width: 992px) {
+  .preload-button {
+    position: absolute;
+    top: -15px;
+    right: -14px;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    font-size: 24px;
+    background: #d42b2b;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 38px;
+    cursor: pointer;
+    z-index: 9999;
+  }
+}
+
+.banner-catfish {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 720px;
+  height: 90px;
+  margin: auto;
+  z-index: 9999;
+}
+
+@media only screen and (max-width: 600px) {
+  .banner-catfish {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 320px;
+    height: 50px;
+    margin: auto;
+    z-index: 9999;
+  }
+}

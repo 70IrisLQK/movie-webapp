@@ -1,0 +1,14 @@
+
+.owl-carousel .owl-item img {
+    height: 300px;
+}
+h1 {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+}
+h3 {
+    font-family: 'Noto Sans', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+}
