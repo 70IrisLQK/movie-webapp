@@ -15,7 +15,7 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "laravelium/sitemap": "^8.0",
+        "roumen/sitemap": "^8.0",
         "spatie/laravel-permission": "^5.9"
     },
     "require-dev": {
@@ -65,7 +65,10 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "php": "8.0.7"
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true

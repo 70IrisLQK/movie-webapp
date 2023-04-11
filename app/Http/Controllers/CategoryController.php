@@ -15,11 +15,11 @@ class CategoryController extends Controller
 {
     public function categoryMovie($slug, Request $request)
     {
-        $listCategoryBySlug = Category::where('slug', $slug)->first();
+        $listCategoryBySlug = Category::where('slug', $slug)->first(['id', 'name']);
 
         $page = request()->has('page') ? request()->get('page') : 1;
 
-        $listMovieByCategory = Cache::remember('listMovieByCategory' . '_page_' . $page, config('constants.time_cache.time'), function () use ($listCategoryBySlug) {
+        $listMovieByCategory = Cache::remember('listMovieByCategory_' . $slug . '_page_' . $page, config('constants.time_cache.time'), function () use ($listCategoryBySlug) {
             return Movie::with('genres', 'countries')
                 ->where('category_id', $listCategoryBySlug->id)
                 ->select('id', 'time', 'year', 'description', 'slug', 'name', 'image', 'origin_name', 'quality', 'language', 'episode_current')

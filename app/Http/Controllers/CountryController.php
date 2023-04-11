@@ -15,19 +15,17 @@ class CountryController extends Controller
 {
     public function countryMovie($slug, Request $request)
     {
-        $listCountryBySlug = Country::where('slug', $slug)->first();
-
+        $listCountryBySlug = Country::where('slug', $slug)->first(['id', 'name']);
         $page = request()->has('page') ? request()->get('page') : 1;
-
-        $listMovieByCountry = Cache::remember('listMovieByCountry' . '_page_' . $page, config('constants.time_cache.time'), function () use ($listCountryBySlug) {
-            return Movie::with('countries')->whereHas('countries', function ($q) use ($listCountryBySlug) {
+        $listMovieByCountry = Cache::remember('listMovieByCountry_' . $slug . '_page_' . $page, config('constants.time_cache.time'), function () use ($listCountryBySlug) {
+            $movie =  Movie::with('countries')->whereHas('countries', function ($q) use ($listCountryBySlug) {
                 $q->where('country_id', $listCountryBySlug->id);
             })
                 ->latest()
                 ->select('id', 'time', 'year', 'description', 'slug', 'name', 'image', 'origin_name', 'quality', 'language', 'episode_current')
                 ->paginate(24);
+            return $movie;
         });
-
         $this->generateSeoTags($listCountryBySlug, $request, $slug);
 
         return view('pages.country', compact(

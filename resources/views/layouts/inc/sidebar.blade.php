@@ -53,7 +53,9 @@
                                 <h3 class="title">{{ $singleTopMovie->name }}</h3>
                                 <p class="original_title">{{ $singleTopMovie->origin_name }}</p>
                             </a>
-                            <div class="viewsCount">{{ thousandsCurrencyFormat($singleTopMovie->view) }} lượt xem</div>
+                            <div class="viewsCount">
+                                {{ App\Http\Controllers\HomeController::thousandsCurrencyFormat($singleTopMovie->view) }}
+                                lượt xem</div>
                         </div>
                     @endforeach
 
@@ -90,7 +92,9 @@
                                 <h3 class="title">{{ $seriesTopMovie->name }}</h3>
                                 <p class="original_title">{{ $seriesTopMovie->origin_name }}</p>
                             </a>
-                            <div class="viewsCount">{{ thousandsCurrencyFormat($seriesTopMovie->view) }} lượt xem</div>
+                            <div class="viewsCount">
+                                {{ App\Http\Controllers\HomeController::thousandsCurrencyFormat($seriesTopMovie->view) }}
+                                lượt xem</div>
                         </div>
                     @endforeach
                 </div>

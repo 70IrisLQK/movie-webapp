@@ -83,7 +83,8 @@
                     Tắt đèn </div>
                 <div id="report" class="halim-switch"><i class="hl-attention"></i> Báo lỗi</div>
                 <div class="luotxem"><i class="hl-eye"></i>
-                    <span>{{ thousandsCurrencyFormat($listMovieBySlug->view) }}</span> lượt xem
+                    <span>{{ App\Http\Controllers\HomeController::thousandsCurrencyFormat($listMovieBySlug->view) }}</span>
+                    lượt xem
                 </div>
             </div>
         </div>

@@ -32,55 +32,60 @@
                     </h3>
                 </div>
                 <div class="halim_box">
-                    @foreach ($listMovies as $movie)
-                        <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-35597">
-                            <div class="halim-item">
-                                <a class="halim-thumb" href="{{ route('phim', [$movie->slug]) }}"
-                                    title="{{ $movie->name }}">
-                                    <figure><img class="blur-up img-responsive lazyautosizes lazyloaded" data-sizes="auto"
-                                            data-src="{{ asset('uploads/movie/' . $movie->image) }}"
-                                            alt="{{ $movie->name }}" title="{{ $movie->name }}" sizes="149px"
-                                            src="{{ asset('uploads/movie/' . $movie->image) }}">
-                                    </figure>
-                                    <span class="status">
-                                        {{ $movie->language }} - {{ $movie->quality }}
-                                    </span><span class="episode">
-                                        {{ $movie->episode_current }}
-                                    </span>
-                                    @php
-                                        $description = Str::limit($movie->description, 70, '...');
-                                    @endphp
-                                    <div class="icon_overlay" data-html="true" data-toggle="halim-popover"
-                                        data-placement="top" data-trigger="hover"
-                                        title="<span class=film-title>{{ $movie->name }}</span>"
-                                        data-content="<div class=org-title>{{ $movie->origin_name }}</div>                            <div class=film-meta>
-                          <div class=text-center>
-                              <span class=released><i class=hl-calendar></i> {{ $movie->year }}</span>                                    <span class=runtime><i class=hl-clock></i> {{ $movie->time }}</span>                                </div>
-                          <div class=film-content>
+                    @if (!$listMovies->count())
+                        <h5>Oops...Không tìm thấy - - trên hệ thống</h5>
+                    @else
+                        @foreach ($listMovies as $movie)
+                            <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-35597">
+                                <div class="halim-item">
+                                    <a class="halim-thumb" href="{{ route('phim', [$movie->slug]) }}"
+                                        title="{{ $movie->name }}">
+                                        <figure><img class="blur-up img-responsive lazyautosizes lazyloaded"
+                                                data-sizes="auto" data-src="{{ asset('uploads/movie/' . $movie->image) }}"
+                                                alt="{{ $movie->name }}" title="{{ $movie->name }}" sizes="149px"
+                                                src="{{ asset('uploads/movie/' . $movie->image) }}">
+                                        </figure>
+                                        <span class="status">
+                                            {{ $movie->language }} - {{ $movie->quality }}
+                                        </span><span class="episode">
+                                            {{ $movie->episode_current }}
+                                        </span>
+                                        @php
+                                            $description = Str::limit($movie->description, 70, '...');
+                                        @endphp
+                                        <div class="icon_overlay" data-html="true" data-toggle="halim-popover"
+                                            data-placement="top" data-trigger="hover"
+                                            title="<span class=film-title>{{ $movie->name }}</span>"
+                                            data-content="<div class=org-title>{{ $movie->origin_name }}</div>                            <div class=film-meta>
+                      <div class=text-center>
+                          <span class=released><i class=hl-calendar></i> {{ $movie->year }}</span>                                    <span class=runtime><i class=hl-clock></i> {{ $movie->time }}</span>                                </div>
+                      <div class=film-content>
 {{ $description }}
-                          </div>
-                          <p class=category>Quốc gia: <span class=category-name>
+                      </div>
+                      <p class=category>Quốc gia: <span class=category-name>
 @foreach ($movie->countries as $country)
 {{ $country->name }}{{ $loop->last ? '' : ', ' }}
 @endforeach
 </span></p>                                <p class=category>Thể loại: <span class=category-name>
-                            @foreach ($movie->genres as $genre)
+                        @foreach ($movie->genres as $genre)
 {{ $genre->name }}{{ $loop->last ? '' : ', ' }}
 @endforeach
-                        </span></p>
-                      </div>">
-                                    </div>
-
-                                    <div class="halim-post-title-box">
-                                        <div class="halim-post-title ">
-                                            <h2 class="entry-title">{{ $movie->name }}</h2>
-                                            <p class="original_title">{{ $movie->origin_name }}</p>
+                    </span></p>
+                  </div>">
                                         </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </article>
-                    @endforeach
+
+                                        <div class="halim-post-title-box">
+                                            <div class="halim-post-title ">
+                                                <h2 class="entry-title">{{ $movie->name }}</h2>
+                                                <p class="original_title">{{ $movie->origin_name }}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </article>
+                        @endforeach
+                    @endif
+
                 </div>
                 <div class="clearfix"></div>
                 <div class="text-center">

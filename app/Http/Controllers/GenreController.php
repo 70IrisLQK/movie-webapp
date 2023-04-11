@@ -15,11 +15,11 @@ class GenreController extends Controller
 {
     public function genreMovie($slug, Request $request)
     {
-        $listGenreBySlug = Genre::where('slug', $slug)->first();
+        $listGenreBySlug = Genre::where('slug', $slug)->first(['id', 'name']);
 
         $page = request()->has('page') ? request()->get('page') : 1;
 
-        $listMovies = Cache::remember('listMoviesByGenre' . '_page_' . $page, config('constants.time_cache.time'), function () use ($listGenreBySlug) {
+        $listMovies = Cache::remember('listMoviesByGenre' . $slug . '_page_' . $page, config('constants.time_cache.time'), function () use ($listGenreBySlug) {
             return Movie::with('genres')->whereHas('genres', function ($q) use ($listGenreBySlug) {
                 $q->where('genre_id', $listGenreBySlug->id);
             })

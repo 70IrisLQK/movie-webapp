@@ -52,7 +52,7 @@ class WatchController extends Controller
             $lastEpisode = Episode::with('movie')->where('movie_id', $listMovieBySlug->id)->where('name', $episode)->orderBy('id', 'DESC')->first();
         }
         $serverActive = $server;
-        // List server 
+        // List server
         $listServer = Server::orderBy('id', 'ASC')->get();
         $listEpisodeServer = Episode::where('movie_id', $listMovieBySlug->id)->orderBy('id', 'ASC')->get()->unique('server_id');
         $listEpisodeMovie = Episode::where('movie_id', $listMovieBySlug->id)->orderBy('id', 'ASC')->get();

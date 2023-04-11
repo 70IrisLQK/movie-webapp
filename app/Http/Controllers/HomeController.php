@@ -349,7 +349,7 @@ class HomeController extends Controller
                             title="' .  $movie->name . '">
                             <div class="item-link">
                                 <img src="' . asset('uploads/movie/' . $movie->image) . '"
-                                    
+
                                     class="lazyload blur-up post-thumb" alt="' .  $movie->name . '"
                                     title="' .  $movie->name . '" />
                             </div>
@@ -380,7 +380,7 @@ class HomeController extends Controller
                             title="' . $movie->name . '">
                             <div class="item-link">
                                 <img src="' . asset('uploads/movie/' . $movie->image) . '"
-                                    
+
                                     class="lazyload blur-up post-thumb" alt="' . $movie->name . '"
                                     title="' .  $movie->name . '" />
                             </div>
@@ -649,7 +649,7 @@ class HomeController extends Controller
 
 
 
-    public function thousandsCurrencyFormat($num)
+    public static function thousandsCurrencyFormat($num)
     {
 
         if ($num > 1000) {
